@@ -1,0 +1,155 @@
+$color_1: #1100ff;
+$color_2: #777;
+$color_3: #fff;
+$color_4: #dc0a0a;
+$color_5: #009688;
+$color_6: #0075ff;
+$font-family_1: Tahoma, Arial;
+$background-color_1: #f8f8f8;
+$background-color_2: #fff;
+$background-color_3: #f9f9f9;
+$background-color_4: #0075ff;
+$background-color_5: #ddd;
+
+/****************************************/
+@keyframes color {
+	0% {
+		background: #33CCCC;
+	}
+	20% {
+		background: #3352cc;
+	}
+	40% {
+		background: #5e33cc;
+	}
+	60% {
+		background: #0047fc;
+	}
+	80% {
+		background: #6e33cc;
+	}
+	100% {
+		background: #3633cc;
+	}
+}
+/****************************************/
+/********************************************************************************/
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: $font-family_1;
+	background: #33CCCC;
+	animation: color 9s infinite linear;
+	text-align: center;
+	padding: 2em;
+}
+.quiz-app {
+	margin: 20px auto;
+	border-radius: 25px;
+	width: 800px;
+	background-color: $background-color_1;
+	padding: 15px;
+	.quiz-info {
+		display: flex;
+		background-color: $background-color_2;
+		padding: 20px;
+		.category {
+			flex: 1;
+		}
+		.count {
+			flex: 1;
+			text-align: center;
+		}
+	}
+	.quiz-area {
+		background-color: $background-color_2;
+		padding: 20px;
+		margin-top: 15px;
+		h2 {
+			margin: 0;
+		}
+	}
+	.answers-area {
+		background-color: $background-color_2;
+		padding: 0 20px 20px;
+		.answer {
+			background-color: $background-color_3;
+			padding: 15px;
+			&:not(:last-child) {
+				border-bottom: 1px solid #dfdfdf;
+			}
+			input[type="Radio"] {
+				&:checked {
+					+ {
+						label {
+							color: $color_1;
+						}
+					}
+				}
+			}
+			label {
+				cursor: pointer;
+				font-weight: bold;
+				color: $color_2;
+				font-size: 14px;
+				margin-left: 5px;
+				position: relative;
+				top: -1px;
+			}
+		}
+	}
+	.submit-button {
+		background-color: $background-color_4;
+		display: block;
+		width: 100%;
+		padding: 15px;
+		border: none;
+		color: $color_3;
+		font-weight: bold;
+		font-size: 18px;
+		cursor: pointer;
+		border-radius: 6px;
+		margin: 20px auto;
+		&:focus {
+			outline: none;
+		}
+	}
+	.bullets {
+		border-top: 1px solid #dfdfdf;
+		background-color: $background-color_2;
+		display: flex;
+		padding: 20px;
+		.spans {
+			flex: 1;
+			display: flex;
+			span {
+				width: 20px;
+				height: 20px;
+				background-color: $background-color_5;
+				margin-right: 5px;
+				border-radius: 50%;
+			}
+			span.on {
+				background-color: $background-color_4;
+			}
+		}
+	}
+	.results {
+		span {
+			font-weight: bold;
+		}
+		span.bad {
+			color: $color_4;
+		}
+		span.good {
+			color: $color_5;
+		}
+		span.perfect {
+			color: $color_6;
+		}
+	}
+}
+.hide {
+	display: none;
+}

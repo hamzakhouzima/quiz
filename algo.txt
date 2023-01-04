@@ -1,0 +1,51 @@
+1- select html elements where the modifications are going to be shown
+2- getQuestions is the main function that use XMLHttprequest class to communicate with the server to bring data
+ .instantiate an object from XMLHttprequest
+ .if readyState equals 4 "which means the state of request is done" && status =200 that mean the response is ready
+    .JSON.parse to change the content of the json file into a js objects format so can we use it inside the code 
+    .we measured the length of the array we stored the js objects in to get the number of questions that we have 
+                       
+
+                    BODY OF GETQUESTIONS CONTAINS FUNCTIONS WE'RE GONNA DEFINE LATER
+ 
+ .we send an XMLHttprequest to the server using myRequest.open and myRequest.send
+
+
+3- createBullets(num) is a function that expect an array lenght as a parametre 
+  .the function create the spans of the questions progress  
+  .by default the function colors the first span when the quiz starts by putting the classname ="on" ; on theBullet element (class on is defined in css)
+  .bulletsSpancontainer is the container that contains the spans , we append the colored bullet in it 
+
+4- addQuestionData(obj,count) is a function that bring and show the questions 
+ . if (currentIndex < count), execute the body of the condition 
+  *currentIndex is the index of the current question, 'count' is the length of the obj array 
+ . create h2 element 
+ . create a text node from obj["title"]
+ . append the previous text we created with createtextnode into h2 element 
+ . for loop to create new elements 4 time 'because we're giving 4 options in the screen'
+ . create a new div 
+ . give it a class name 
+ . create an input 
+ . give it a name
+ . give it a type
+ . give it an id 'the id is  answer_$optionDigit'
+ . give it a classname 
+ . give it a data set named answer with option digit 
+ . use if to select the first question selected by default 
+ . create a label 
+ . link the label with his radio box
+ . create a text node from obj["answer_$Qdigit]
+ . put the text node into label tag 
+ . put radio input and label in the main div 
+ . puth the main div in answersArea 
+    *that creates the div where questions are shown
+
+ 5-checkAnswer(rAnswer) is the function that check if the user's answer is right or wrong  
+  . select the input named question 
+  . delare a variable to store the choosen answer in it 
+  . a loop to map into the answers obj and bring it's dataset from html 
+  . affect the selected option to thechoosenAnswer variable 
+  . compare the choosen answer and the right answer we took from the paramter of the function
+  . encrease the score of right answers 
+6-showResults(count) is a function  that shows the result of the quiz
+  . 
